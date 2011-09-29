@@ -20,7 +20,7 @@ module Rails3JQueryAutocomplete
         is_full_search = options[:full]
         term           = parameters[:term]
         limit          = get_autocomplete_limit(options)
-        order          = get_autocomplete_order(method, options)
+        order          = mongoid_get_autocomplete_order(method, options)
 
         if is_full_search
           search = '.*' + term + '.*'

@@ -20,7 +20,7 @@ module Rails3JQueryAutocomplete
         is_full_search = options[:full]
         term           = parameters[:term]
         limit          = get_autocomplete_limit(options)
-        order          = get_autocomplete_order(method, options)
+        order          = mongo_mapper_get_autocomplete_order(method, options)
 
         search = (is_full_search ? '.*' : '^') + term + '.*'
 				items  = model.where(method.to_sym => /#{search}/i).limit(limit).sort(order)
